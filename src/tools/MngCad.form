@@ -1,0 +1,399 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="tools.MngCad">
+  <grid id="27dc6" binding="jPMngCad" layout-manager="GridLayoutManager" row-count="9" column-count="4" same-size-horizontally="false" same-size-vertically="false" hgap="10" vgap="10">
+    <margin top="10" left="10" bottom="10" right="10"/>
+    <constraints>
+      <xy x="20" y="20" width="698" height="557"/>
+    </constraints>
+    <properties>
+      <autoscrolls value="true"/>
+      <background color="-12828863"/>
+      <doubleBuffered value="true"/>
+      <enabled value="true"/>
+      <font name="Century Gothic" size="14" style="0"/>
+      <foreground color="-1"/>
+      <maximumSize width="731" height="428"/>
+      <minimumSize width="698" height="407"/>
+      <preferredSize width="698" height="407"/>
+    </properties>
+    <border type="bevel-lowered" title="Q&amp;A Team Integrated toolkit (Beta v1.0)" title-justification="1" title-position="1">
+      <font name="Century Gothic" size="14" style="0"/>
+      <title-color color="-4473925"/>
+    </border>
+    <children>
+      <component id="cf15f" class="javax.swing.JLabel" binding="jLvmNbr">
+        <constraints>
+          <grid row="0" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
+            <minimum-size width="150" height="-1"/>
+            <preferred-size width="150" height="-1"/>
+            <maximum-size width="150" height="-1"/>
+          </grid>
+        </constraints>
+        <properties>
+          <enabled value="true"/>
+          <font name="Century Gothic" size="16" style="3"/>
+          <foreground color="-4473925"/>
+          <text value="VM Number"/>
+        </properties>
+      </component>
+      <component id="fa6a" class="javax.swing.JTextField" binding="textVMNbr">
+        <constraints>
+          <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false">
+            <minimum-size width="70" height="-1"/>
+            <preferred-size width="70" height="-1"/>
+            <maximum-size width="70" height="-1"/>
+          </grid>
+        </constraints>
+        <properties>
+          <background color="-12828863"/>
+          <caretColor color="-1"/>
+          <disabledTextColor color="-1"/>
+          <font name="Century Gothic" size="14" style="0"/>
+          <foreground color="-1"/>
+          <selectedTextColor color="-1"/>
+          <selectionColor color="-15766017"/>
+          <toolTipText value="Enter VM Number"/>
+        </properties>
+      </component>
+      <component id="d5061" class="javax.swing.JLabel" binding="jLEmpCode">
+        <constraints>
+          <grid row="1" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
+            <minimum-size width="150" height="-1"/>
+            <preferred-size width="150" height="-1"/>
+            <maximum-size width="150" height="-1"/>
+          </grid>
+        </constraints>
+        <properties>
+          <font name="Century Gothic" size="16" style="3"/>
+          <foreground color="-4473925"/>
+          <text value="Employee Code"/>
+        </properties>
+      </component>
+      <component id="b5646" class="javax.swing.JTextField" binding="textEmpCode">
+        <constraints>
+          <grid row="1" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false">
+            <minimum-size width="90" height="-1"/>
+            <preferred-size width="90" height="-1"/>
+            <maximum-size width="90" height="-1"/>
+          </grid>
+        </constraints>
+        <properties>
+          <background color="-12828863"/>
+          <caretColor color="-1"/>
+          <disabledTextColor color="-1"/>
+          <doubleBuffered value="false"/>
+          <editable value="true"/>
+          <enabled value="true"/>
+          <font name="Century Gothic" size="14" style="0"/>
+          <foreground color="-1"/>
+          <selectedTextColor color="-1"/>
+          <selectionColor color="-15766017"/>
+          <toolTipText value="Enter your credential code"/>
+        </properties>
+      </component>
+      <component id="aaf7a" class="javax.swing.JLabel" binding="jLURL">
+        <constraints>
+          <grid row="2" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
+            <minimum-size width="150" height="-1"/>
+            <preferred-size width="150" height="-1"/>
+            <maximum-size width="150" height="-1"/>
+          </grid>
+        </constraints>
+        <properties>
+          <font name="Century Gothic" size="16" style="3"/>
+          <foreground color="-4473925"/>
+          <text value="URL"/>
+        </properties>
+      </component>
+      <component id="7d1e2" class="javax.swing.JTextField" binding="http172161TextField" default-binding="true">
+        <constraints>
+          <grid row="2" column="2" row-span="1" col-span="2" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false">
+            <minimum-size width="350" height="-1"/>
+            <preferred-size width="350" height="-1"/>
+            <maximum-size width="350" height="-1"/>
+          </grid>
+        </constraints>
+        <properties>
+          <background color="-12828863"/>
+          <caretColor color="-1"/>
+          <disabledTextColor color="-1"/>
+          <font name="Century Gothic" size="14" style="0"/>
+          <foreground color="-1"/>
+          <selectedTextColor color="-1"/>
+          <selectionColor color="-15766017"/>
+          <text value="http://172.16.1.***:****/CADENCIE/servlet/app"/>
+        </properties>
+      </component>
+      <component id="72595" class="javax.swing.JLabel" binding="jLEmpNbr">
+        <constraints>
+          <grid row="4" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
+            <minimum-size width="150" height="-1"/>
+            <preferred-size width="150" height="-1"/>
+            <maximum-size width="150" height="-1"/>
+          </grid>
+        </constraints>
+        <properties>
+          <font name="Century Gothic" size="16" style="3"/>
+          <foreground color="-4473925"/>
+          <text value="Employee Number"/>
+        </properties>
+      </component>
+      <component id="328ca" class="javax.swing.JTextField" binding="textEmpNbr">
+        <constraints>
+          <grid row="4" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+            <minimum-size width="150" height="-1"/>
+            <preferred-size width="150" height="-1"/>
+            <maximum-size width="150" height="-1"/>
+          </grid>
+        </constraints>
+        <properties>
+          <background color="-12828863"/>
+          <caretColor color="-1"/>
+          <disabledTextColor color="-1"/>
+          <font name="Century Gothic" size="14" style="0"/>
+          <foreground color="-1"/>
+          <requestFocusEnabled value="true"/>
+          <selectedTextColor color="-1"/>
+          <selectionColor color="-15766017"/>
+        </properties>
+      </component>
+      <component id="9ea47" class="javax.swing.JLabel" binding="jLEgEmpCode">
+        <constraints>
+          <grid row="1" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="4" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <font name="Century Gothic" size="12" style="2"/>
+          <foreground color="-4473925"/>
+          <text value="eg: QA-1, Code"/>
+        </properties>
+      </component>
+      <component id="aee7" class="javax.swing.JLabel" binding="jLEgEmpNbr">
+        <constraints>
+          <grid row="4" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <font name="Century Gothic" size="12" style="2"/>
+          <foreground color="-4473925"/>
+          <text value="eg: 200000"/>
+        </properties>
+      </component>
+      <component id="5ebb9" class="javax.swing.JLabel" binding="jLPwd">
+        <constraints>
+          <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
+            <minimum-size width="150" height="-1"/>
+            <preferred-size width="150" height="-1"/>
+            <maximum-size width="150" height="-1"/>
+          </grid>
+        </constraints>
+        <properties>
+          <font name="Century Gothic" size="16" style="3"/>
+          <foreground color="-4473925"/>
+          <text value="Password"/>
+        </properties>
+      </component>
+      <component id="61594" class="javax.swing.JTextField" binding="textPwd">
+        <constraints>
+          <grid row="5" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+            <minimum-size width="150" height="-1"/>
+            <preferred-size width="150" height="-1"/>
+            <maximum-size width="150" height="-1"/>
+          </grid>
+        </constraints>
+        <properties>
+          <background color="-12828863"/>
+          <caretColor color="-1"/>
+          <disabledTextColor color="-1"/>
+          <font name="Century Gothic" size="14" style="0"/>
+          <foreground color="-1"/>
+          <selectedTextColor color="-1"/>
+          <selectionColor color="-15766017"/>
+        </properties>
+      </component>
+      <component id="54885" class="javax.swing.JLabel" binding="jLEgPwd">
+        <constraints>
+          <grid row="5" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <font name="Century Gothic" size="12" style="2"/>
+          <foreground color="-4473925"/>
+          <text value="eg: Cadencie1"/>
+        </properties>
+      </component>
+      <component id="ca505" class="javax.swing.JLabel" binding="jLBnkNbr">
+        <constraints>
+          <grid row="3" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
+            <minimum-size width="150" height="-1"/>
+            <preferred-size width="150" height="-1"/>
+            <maximum-size width="150" height="-1"/>
+          </grid>
+        </constraints>
+        <properties>
+          <font name="Century Gothic" size="16" style="3"/>
+          <foreground color="-4473925"/>
+          <text value="Bank Number"/>
+        </properties>
+      </component>
+      <component id="d910b" class="javax.swing.JTextField" binding="textBnkNbr">
+        <constraints>
+          <grid row="3" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+            <minimum-size width="70" height="-1"/>
+            <preferred-size width="70" height="-1"/>
+            <maximum-size width="70" height="-1"/>
+          </grid>
+        </constraints>
+        <properties>
+          <background color="-12828863"/>
+          <caretColor color="-1"/>
+          <disabledTextColor color="-1"/>
+          <font name="Century Gothic" size="14" style="0"/>
+          <foreground color="-1"/>
+          <selectedTextColor color="-1"/>
+          <selectionColor color="-15766017"/>
+        </properties>
+      </component>
+      <component id="c0597" class="javax.swing.JLabel" binding="jLEgBnkNbr">
+        <constraints>
+          <grid row="3" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <font name="Century Gothic" size="12" style="2"/>
+          <foreground color="-4473925"/>
+          <text value="eg: 01, 48"/>
+        </properties>
+      </component>
+      <component id="8ed7d" class="javax.swing.JLabel" binding="jLDes">
+        <constraints>
+          <grid row="6" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
+            <minimum-size width="150" height="-1"/>
+            <preferred-size width="150" height="-1"/>
+            <maximum-size width="150" height="-1"/>
+          </grid>
+        </constraints>
+        <properties>
+          <font name="Century Gothic" size="16" style="3"/>
+          <foreground color="-4473925"/>
+          <text value="VM Description"/>
+        </properties>
+      </component>
+      <component id="42305" class="javax.swing.JLabel" binding="jLEgDes">
+        <constraints>
+          <grid row="6" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <font name="Century Gothic" size="12" style="2"/>
+          <foreground color="-4473925"/>
+          <text value="eg: Standard VM"/>
+        </properties>
+      </component>
+      <component id="5ce2b" class="javax.swing.JTextField" binding="textDes">
+        <constraints>
+          <grid row="6" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+            <minimum-size width="350" height="-1"/>
+            <preferred-size width="350" height="-1"/>
+            <maximum-size width="350" height="-1"/>
+          </grid>
+        </constraints>
+        <properties>
+          <background color="-12828863"/>
+          <caretColor color="-1"/>
+          <disabledTextColor color="-1"/>
+          <font name="Century Gothic" size="14" style="0"/>
+          <foreground color="-1"/>
+          <selectedTextColor color="-1"/>
+          <selectionColor color="-15766017"/>
+        </properties>
+      </component>
+      <grid id="e4180" binding="jPBtns" layout-manager="GridLayoutManager" row-count="1" column-count="3" same-size-horizontally="false" same-size-vertically="false" hgap="0" vgap="0">
+        <margin top="0" left="0" bottom="0" right="0"/>
+        <constraints>
+          <grid row="7" column="0" row-span="1" col-span="4" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
+            <minimum-size width="666" height="50"/>
+            <preferred-size width="666" height="50"/>
+            <maximum-size width="666" height="50"/>
+          </grid>
+        </constraints>
+        <properties>
+          <background color="-12828863"/>
+          <font name="Century Gothic" size="14" style="0"/>
+        </properties>
+        <border type="bevel-raised"/>
+        <children>
+          <component id="47a21" class="javax.swing.JButton" binding="btnClean">
+            <constraints>
+              <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false">
+                <minimum-size width="200" height="-1"/>
+                <preferred-size width="200" height="-1"/>
+                <maximum-size width="200" height="-1"/>
+              </grid>
+            </constraints>
+            <properties>
+              <background color="-12828863"/>
+              <font swing-font="Button.font"/>
+              <foreground color="-1"/>
+              <text value="&amp;Clear"/>
+            </properties>
+          </component>
+          <component id="22b99" class="javax.swing.JButton" binding="btnNew">
+            <constraints>
+              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false">
+                <minimum-size width="200" height="-1"/>
+                <preferred-size width="200" height="-1"/>
+                <maximum-size width="200" height="-1"/>
+              </grid>
+            </constraints>
+            <properties>
+              <background color="-12828863"/>
+              <font swing-font="Button.font"/>
+              <foreground color="-1"/>
+              <text value="New"/>
+            </properties>
+          </component>
+          <component id="c4909" class="javax.swing.JButton" binding="btnUpdate">
+            <constraints>
+              <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false">
+                <minimum-size width="200" height="-1"/>
+                <preferred-size width="200" height="-1"/>
+                <maximum-size width="200" height="-1"/>
+              </grid>
+            </constraints>
+            <properties>
+              <background color="-12828863"/>
+              <font swing-font="Button.font"/>
+              <foreground color="-1"/>
+              <label value="Update"/>
+              <text value="Update"/>
+            </properties>
+          </component>
+        </children>
+      </grid>
+      <component id="cbaa3" class="javax.swing.JTextArea" binding="textWrn">
+        <constraints>
+          <grid row="8" column="0" row-span="1" col-span="4" vsize-policy="6" hsize-policy="6" anchor="8" fill="2" indent="0" use-parent-layout="false">
+            <minimum-size width="666" height="-1"/>
+            <preferred-size width="666" height="-1"/>
+            <maximum-size width="666" height="-1"/>
+          </grid>
+        </constraints>
+        <properties>
+          <background color="-12236470"/>
+          <caretColor color="-1"/>
+          <disabledTextColor color="-1"/>
+          <font name="Century Gothic" size="14" style="0"/>
+          <foreground color="-1"/>
+          <selectedTextColor color="-1"/>
+          <selectionColor color="-15766017"/>
+        </properties>
+      </component>
+      <component id="93b67" class="javax.swing.JLabel" binding="jLEgVmNbr">
+        <constraints>
+          <grid row="0" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <font name="Century Gothic" size="12" style="2"/>
+          <foreground color="-4473925"/>
+          <text value="eg: VM09 , VM14"/>
+        </properties>
+      </component>
+    </children>
+  </grid>
+</form>

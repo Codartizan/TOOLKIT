@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Class-Path: selenium-java-3.0.0-beta4.jar jetty-repacked-9.2.13.v20160
+ 825.jar client-combined-3.0.0-beta4-nodeps.jar selenium-server-standa
+ lone-3.0.0-beta4.jar snakeyaml-1.17.jar commons-lang-2.6.jar jcip-ann
+ otations-1.0.jar jcommander-1.58.jar log4j-1.2.17.jar commons-lang3-3
+ .4.jar selenium-firefox-driver-3.0.0-beta4.jar mysql-connector-java-5
+ .1.40-bin.jar htmlunit-driver-2.23.jar
+Main-Class: tools.ToolKit
+

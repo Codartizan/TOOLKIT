@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="client-combined-3.0.0-beta4-nodeps">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/jars/client-combined-3.0.0-beta4-nodeps.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
