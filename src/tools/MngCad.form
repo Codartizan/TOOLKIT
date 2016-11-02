@@ -36,25 +36,6 @@
           <text value="VM Number"/>
         </properties>
       </component>
-      <component id="fa6a" class="javax.swing.JTextField" binding="textVMNbr">
-        <constraints>
-          <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false">
-            <minimum-size width="70" height="-1"/>
-            <preferred-size width="70" height="-1"/>
-            <maximum-size width="70" height="-1"/>
-          </grid>
-        </constraints>
-        <properties>
-          <background color="-12828863"/>
-          <caretColor color="-1"/>
-          <disabledTextColor color="-1"/>
-          <font name="Century Gothic" size="14" style="0"/>
-          <foreground color="-1"/>
-          <selectedTextColor color="-1"/>
-          <selectionColor color="-15766017"/>
-          <toolTipText value="Enter VM Number"/>
-        </properties>
-      </component>
       <component id="d5061" class="javax.swing.JLabel" binding="jLEmpCode">
         <constraints>
           <grid row="1" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
@@ -67,28 +48,6 @@
           <font name="Century Gothic" size="16" style="3"/>
           <foreground color="-4473925"/>
           <text value="Employee Code"/>
-        </properties>
-      </component>
-      <component id="b5646" class="javax.swing.JTextField" binding="textEmpCode">
-        <constraints>
-          <grid row="1" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false">
-            <minimum-size width="90" height="-1"/>
-            <preferred-size width="90" height="-1"/>
-            <maximum-size width="90" height="-1"/>
-          </grid>
-        </constraints>
-        <properties>
-          <background color="-12828863"/>
-          <caretColor color="-1"/>
-          <disabledTextColor color="-1"/>
-          <doubleBuffered value="false"/>
-          <editable value="true"/>
-          <enabled value="true"/>
-          <font name="Century Gothic" size="14" style="0"/>
-          <foreground color="-1"/>
-          <selectedTextColor color="-1"/>
-          <selectionColor color="-15766017"/>
-          <toolTipText value="Enter your credential code"/>
         </properties>
       </component>
       <component id="aaf7a" class="javax.swing.JLabel" binding="jLURL">
@@ -121,7 +80,7 @@
           <foreground color="-1"/>
           <selectedTextColor color="-1"/>
           <selectionColor color="-15766017"/>
-          <text value="http://172.16.1.***:****/CADENCIE/servlet/app"/>
+          <text value="http://172.16.1.xxx:xxxx/CADENCIE/servlet/app"/>
         </properties>
       </component>
       <component id="72595" class="javax.swing.JLabel" binding="jLEmpNbr">
@@ -318,7 +277,7 @@
         </properties>
         <border type="bevel-raised"/>
         <children>
-          <component id="47a21" class="javax.swing.JButton" binding="btnClean">
+          <component id="47a21" class="javax.swing.JButton" binding="btnNew">
             <constraints>
               <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false">
                 <minimum-size width="200" height="-1"/>
@@ -327,13 +286,15 @@
               </grid>
             </constraints>
             <properties>
+              <actionCommand value="New"/>
               <background color="-12828863"/>
               <font swing-font="Button.font"/>
               <foreground color="-1"/>
-              <text value="&amp;Clear"/>
+              <label value="New"/>
+              <text value="New"/>
             </properties>
           </component>
-          <component id="22b99" class="javax.swing.JButton" binding="btnNew">
+          <component id="22b99" class="javax.swing.JButton" binding="btnInquire">
             <constraints>
               <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false">
                 <minimum-size width="200" height="-1"/>
@@ -342,10 +303,12 @@
               </grid>
             </constraints>
             <properties>
+              <actionCommand value="Inquire"/>
               <background color="-12828863"/>
               <font swing-font="Button.font"/>
               <foreground color="-1"/>
-              <text value="New"/>
+              <label value="Inquire"/>
+              <text value="Inquire"/>
             </properties>
           </component>
           <component id="c4909" class="javax.swing.JButton" binding="btnUpdate">
@@ -382,6 +345,7 @@
           <foreground color="-1"/>
           <selectedTextColor color="-1"/>
           <selectionColor color="-15766017"/>
+          <text value=""/>
         </properties>
       </component>
       <component id="93b67" class="javax.swing.JLabel" binding="jLEgVmNbr">
@@ -392,6 +356,42 @@
           <font name="Century Gothic" size="12" style="2"/>
           <foreground color="-4473925"/>
           <text value="eg: VM09 , VM14"/>
+        </properties>
+      </component>
+      <component id="ac200" class="javax.swing.JComboBox" binding="comboVMNbr">
+        <constraints>
+          <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="0" indent="0" use-parent-layout="false">
+            <minimum-size width="90" height="-1"/>
+            <preferred-size width="90" height="-1"/>
+            <maximum-size width="90" height="-1"/>
+          </grid>
+        </constraints>
+        <properties>
+          <autoscrolls value="true"/>
+          <background color="-12828863"/>
+          <editable value="true"/>
+          <enabled value="true"/>
+          <font name="Century Gothic" size="12" style="0"/>
+          <foreground color="-1"/>
+          <maximumRowCount value="50"/>
+        </properties>
+      </component>
+      <component id="dab12" class="javax.swing.JComboBox" binding="comboEmpCode">
+        <constraints>
+          <grid row="1" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="0" indent="0" use-parent-layout="false">
+            <minimum-size width="110" height="-1"/>
+            <preferred-size width="110" height="-1"/>
+            <maximum-size width="110" height="-1"/>
+          </grid>
+        </constraints>
+        <properties>
+          <autoscrolls value="true"/>
+          <background color="-12828863"/>
+          <editable value="true"/>
+          <enabled value="true"/>
+          <font name="Century Gothic" size="12" style="0"/>
+          <foreground color="-1"/>
+          <maximumRowCount value="50"/>
         </properties>
       </component>
     </children>

@@ -1,16 +1,12 @@
 package tools;
 
-import org.apache.commons.io.FileUtils;
-import org.apache.commons.io.LineIterator;
-
 import javax.swing.*;
-import java.awt.event.*;
-import java.io.*;
-import java.sql.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import java.sql.SQLException;
 import java.text.ParseException;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.Properties;
 
 import static tools.Utilities.*;
 
@@ -28,6 +24,9 @@ public class ToolKit {
     private JButton btnCheckDigit, btnJulianDate, btnRelativeDate, btnLaunchCad, btnPort, btnRPort, btnCredentials, btnMngCad;
     private JTextArea textAreaResult;
     private JComboBox comboVM, comboUser;
+    private JLabel jLCurrUsr;
+    private JCheckBox checkYes;
+    private JTextField typeYourNameTextField;
 
 
     public ToolKit() {
@@ -46,6 +45,7 @@ public class ToolKit {
             public void actionPerformed(ActionEvent e) {
                 String vmString = comboVM.getSelectedItem().toString();
                 util.displayEMP(vmString, comboUser);
+
             }
         });
 
@@ -381,16 +381,51 @@ public class ToolKit {
                 String emp = null;
                 String pwd = null;
                 String des = null;
+                String dbUsr = null;
+                String dbPwd = null;
+                String dbServ = null;
+                String unixUsr = null;
+                String unixPwd = null;
+                String phServ = null;
+                String phClient = null;
+                String currUser = null;
+
                 try {
+
                     baseUrl = util.connDB(("SELECT * FROM " + vm + " WHERE EMP_CODE = '" + usr + "';"), "VM_URL");
                     bankNo = util.connDB(("SELECT * FROM " + vm + " WHERE EMP_CODE = '" + usr + "';"), "BANK_NBR");
                     emp = util.connDB(("SELECT * FROM " + vm + " WHERE EMP_CODE = '" + usr + "';"), "BANK_EMP");
                     pwd = util.connDB(("SELECT * FROM " + vm + " WHERE EMP_CODE = '" + usr + "';"), "BANK_PWD");
                     des = util.connDB(("SELECT * FROM " + vm + " WHERE EMP_CODE = '" + usr + "';"), "VM_DES");
+                    dbUsr = util.connDB(("SELECT * FROM VMLIST WHERE VM_LIST = '" + vm + "';"), "DB_USR");
+                    dbPwd = util.connDB(("SELECT * FROM VMLIST WHERE VM_LIST = '" + vm + "';"), "DB_PWD");
+                    dbServ = util.connDB(("SELECT * FROM VMLIST WHERE VM_LIST = '" + vm + "';"), "DB_SERV");
+                    unixUsr = util.connDB(("SELECT * FROM VMLIST WHERE VM_LIST = '" + vm + "';"), "UNIX_USR");
+                    unixPwd = util.connDB(("SELECT * FROM VMLIST WHERE VM_LIST = '" + vm + "';"), "UNIX_PWD");
+                    phServ = util.connDB(("SELECT * FROM VMLIST WHERE VM_LIST = '" + vm + "';"), "PH_SERV");
+                    phClient = util.connDB(("SELECT * FROM VMLIST WHERE VM_LIST = '" + vm + "';"), "PH_CLIENT");
+                    currUser = util.connDB(("SELECT * FROM " + vm + " WHERE EMP_CODE = '" + usr + "';"), "CURR_USR");
+
                 } catch (SQLException e1) {
+
                     e1.printStackTrace();
                 }
-                textAreaResult.setText("URL: " + baseUrl + "\nBank: " + bankNo + "\nEmployee: " + emp + "\nPassword: " + pwd + "\nVM Description: " + des);
+
+                if (currUser == null) {
+
+                    typeYourNameTextField.setText("Available");
+                    checkYes.setSelected(false);
+
+                } else {
+
+                    typeYourNameTextField.setText(currUser);
+                    checkYes.setSelected(true);
+
+                }
+
+                textAreaResult.setText("URL: " + baseUrl + "\nBank: " + bankNo + "\nEmployee: " + emp + "\nPassword: " + pwd + "\nVM Description: " + des +
+                    "\nDatabase User: " + dbUsr + "\nDatabase Password: " + dbPwd + "\nDatabase Serve Name: " + dbServ + "\nUnix User: " + unixUsr + "\nUnix Password: " + unixPwd +
+                    "\nPaymentHub Server: " + phServ + "\nPaymentHub Client: " + phClient);
 
 
             }
@@ -398,14 +433,39 @@ public class ToolKit {
         });
 
 
-        btnMngCad.addActionListener(new ActionListener() {
+        btnMngCad.addActionListener(e -> {
+            if (e.getSource() == btnMngCad) {
+
+                MngCad mc = new MngCad();
+
+                mc.startMngCad();
+
+            }
+        });
+        checkYes.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (e.getSource() == btnMngCad) {
 
-                    MngCad mc = new MngCad();
+                String vm = comboVM.getSelectedItem().toString();
+                String usr = comboUser.getSelectedItem().toString();
+                String currUsr = typeYourNameTextField.getText();
 
-                    mc.startMngCad();
+                if (checkYes.isSelected()) {
+
+                    try {
+                        util.updateDB("UPDATE " + vm + " SET CURR_USR = '" + currUsr + "' WHERE EMP_CODE = '" + usr + "';");
+                    } catch (SQLException e1) {
+                        e1.printStackTrace();
+                    }
+
+                } else {
+
+                    try {
+                        util.updateDB("UPDATE " + vm + " SET CURR_USR = NULL WHERE EMP_CODE = '" + usr + "';");
+                        typeYourNameTextField.setText("Available");
+                    } catch (SQLException e1) {
+                        e1.printStackTrace();
+                    }
 
                 }
             }

@@ -460,7 +460,7 @@ public class Utilities {
         Connection conn = null;
         Statement stmt = null;
         ResultSet rs = null;
-        String result= null;
+        String result;
         ArrayList<String> iList = new ArrayList<String>();
 
         String url = "jdbc:mysql://172.16.1.150:3306/TOOLKIT";
