@@ -369,7 +369,7 @@
         <properties>
           <autoscrolls value="true"/>
           <background color="-12828863"/>
-          <editable value="true"/>
+          <editable value="false"/>
           <enabled value="true"/>
           <font name="Century Gothic" size="12" style="0"/>
           <foreground color="-1"/>

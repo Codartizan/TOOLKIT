@@ -254,6 +254,7 @@
         <properties>
           <autoscrolls value="true"/>
           <background color="-12828863"/>
+          <editable value="false"/>
           <enabled value="true"/>
           <focusable value="true"/>
           <font name="Century Gothic" size="14" style="0"/>

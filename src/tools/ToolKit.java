@@ -442,32 +442,30 @@ public class ToolKit {
 
             }
         });
-        checkYes.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
 
-                String vm = comboVM.getSelectedItem().toString();
-                String usr = comboUser.getSelectedItem().toString();
-                String currUsr = typeYourNameTextField.getText();
+        checkYes.addActionListener(e -> {
 
-                if (checkYes.isSelected()) {
+            String vm = comboVM.getSelectedItem().toString();
+            String usr = comboUser.getSelectedItem().toString();
+            String currUsr = typeYourNameTextField.getText();
 
-                    try {
-                        util.updateDB("UPDATE " + vm + " SET CURR_USR = '" + currUsr + "' WHERE EMP_CODE = '" + usr + "';");
-                    } catch (SQLException e1) {
-                        e1.printStackTrace();
-                    }
+            if (checkYes.isSelected()) {
 
-                } else {
-
-                    try {
-                        util.updateDB("UPDATE " + vm + " SET CURR_USR = NULL WHERE EMP_CODE = '" + usr + "';");
-                        typeYourNameTextField.setText("Available");
-                    } catch (SQLException e1) {
-                        e1.printStackTrace();
-                    }
-
+                try {
+                    util.updateDB("UPDATE " + vm + " SET CURR_USR = '" + currUsr + "' WHERE EMP_CODE = '" + usr + "';");
+                } catch (SQLException e1) {
+                    e1.printStackTrace();
                 }
+
+            } else {
+
+                try {
+                    util.updateDB("UPDATE " + vm + " SET CURR_USR = NULL WHERE EMP_CODE = '" + usr + "';");
+                    typeYourNameTextField.setText("Available");
+                } catch (SQLException e1) {
+                    e1.printStackTrace();
+                }
+
             }
         });
     }

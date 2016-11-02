@@ -1,16 +1,16 @@
 package tools;
 
 
-import org.apache.commons.lang.StringUtils;
-import org.apache.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 
 import javax.swing.*;
-import java.io.*;
 import java.sql.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+import java.util.Set;
 
 
 /**
@@ -165,7 +165,7 @@ public class Utilities {
 
         String baseDate = "1957-01-01";
 
-        java.sql.Date olddate = null;
+        java.sql.Date olddate;
 
         try {
 
@@ -457,9 +457,9 @@ public class Utilities {
     //Get result list from mysql
     public ArrayList<String> resultListFromDB(String sqlStmt, String col) throws SQLException {
 
-        Connection conn = null;
-        Statement stmt = null;
-        ResultSet rs = null;
+        Connection conn;
+        Statement stmt;
+        ResultSet rs;
         String result;
         ArrayList<String> iList = new ArrayList<String>();
 
@@ -484,28 +484,14 @@ public class Utilities {
 
             }
 
+            rs.close();
+            stmt.close();
+            conn.close();
+
         } catch (Exception e) {
 
             e.printStackTrace();
 
-        }finally {
-
-            try {
-
-                if (rs != null) {
-                    rs.close();
-                }
-
-                if (stmt != null) {
-                    stmt.close();
-                }
-                if (conn != null) {
-                    conn.close();
-                }
-
-            } catch (Exception ex) {
-                ex.printStackTrace();
-            }
         }
 
         return iList;
