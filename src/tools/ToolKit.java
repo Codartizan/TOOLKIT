@@ -468,6 +468,35 @@ public class ToolKit {
 
             }
         });
+        comboUser.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (e.getSource() == comboUser) {
+
+                    String currUser = null;
+                    String vm = comboVM.getSelectedItem().toString();
+                    String usr = comboUser.getSelectedItem().toString();
+
+                    try {
+                        currUser = util.connDB(("SELECT * FROM " + vm + " WHERE EMP_CODE = '" + usr + "';"), "CURR_USR");
+                    } catch (SQLException e1) {
+                        e1.printStackTrace();
+                    }
+
+                    if (currUser == null) {
+
+                        typeYourNameTextField.setText("Available");
+                        checkYes.setSelected(false);
+
+                    } else {
+
+                        typeYourNameTextField.setText(currUser);
+                        checkYes.setSelected(true);
+
+                    }
+                }
+            }
+        });
     }
 
     public static void main(String[] args) throws UnsupportedLookAndFeelException {
