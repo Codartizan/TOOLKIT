@@ -1,10 +1,7 @@
 package tools;
 
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
+import java.awt.event.*;
 import java.sql.SQLException;
 import java.text.ParseException;
 
@@ -424,10 +421,8 @@ public class ToolKit {
                 }
 
                 textAreaResult.setText("URL: " + baseUrl + "\nBank: " + bankNo + "\nEmployee: " + emp + "\nPassword: " + pwd + "\nVM Description: " + des +
-                    "\nDatabase User: " + dbUsr + "\nDatabase Password: " + dbPwd + "\nDatabase Serve Name: " + dbServ + "\nUnix User: " + unixUsr + "\nUnix Password: " + unixPwd +
-                    "\nPaymentHub Server: " + phServ + "\nPaymentHub Client: " + phClient);
-
-
+                        "\nDatabase User: " + dbUsr + "\nDatabase Password: " + dbPwd + "\nDatabase Serve Name: " + dbServ + "\nUnix User: " + unixUsr + "\nUnix Password: " + unixPwd +
+                        "\nPaymentHub Server: " + phServ + "\nPaymentHub Client: " + phClient);
             }
 
         });
@@ -468,32 +463,32 @@ public class ToolKit {
 
             }
         });
-        comboUser.addActionListener(new ActionListener() {
+
+        comboUser.addMouseListener(new MouseAdapter() {
             @Override
-            public void actionPerformed(ActionEvent e) {
-                if (e.getSource() == comboUser) {
+            public void mouseClicked(MouseEvent e) {
+                super.mouseClicked(e);
 
-                    String currUser = null;
-                    String vm = comboVM.getSelectedItem().toString();
-                    String usr = comboUser.getSelectedItem().toString();
+                String currUser = null;
+                String vm = comboVM.getSelectedItem().toString();
+                String usr = comboUser.getSelectedItem().toString();
 
-                    try {
-                        currUser = util.connDB(("SELECT * FROM " + vm + " WHERE EMP_CODE = '" + usr + "';"), "CURR_USR");
-                    } catch (SQLException e1) {
-                        e1.printStackTrace();
-                    }
+                try {
+                    currUser = util.connDB(("SELECT * FROM " + vm + " WHERE EMP_CODE = '" + usr + "';"), "CURR_USR");
+                } catch (SQLException e1) {
+                    e1.printStackTrace();
+                }
 
-                    if (currUser == null) {
+                if (currUser == null) {
 
-                        typeYourNameTextField.setText("Available");
-                        checkYes.setSelected(false);
+                    typeYourNameTextField.setText("Available");
+                    checkYes.setSelected(false);
 
-                    } else {
+                } else {
 
-                        typeYourNameTextField.setText(currUser);
-                        checkYes.setSelected(true);
+                    typeYourNameTextField.setText(currUser);
+                    checkYes.setSelected(true);
 
-                    }
                 }
             }
         });
