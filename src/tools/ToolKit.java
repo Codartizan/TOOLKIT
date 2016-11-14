@@ -386,6 +386,7 @@ public class ToolKit {
                 String phServ = null;
                 String phClient = null;
                 String currUser = null;
+                String host = null;
 
                 try {
 
@@ -394,6 +395,7 @@ public class ToolKit {
                     emp = util.connDB(("SELECT * FROM " + vm + " WHERE EMP_CODE = '" + usr + "';"), "BANK_EMP");
                     pwd = util.connDB(("SELECT * FROM " + vm + " WHERE EMP_CODE = '" + usr + "';"), "BANK_PWD");
                     des = util.connDB(("SELECT * FROM " + vm + " WHERE EMP_CODE = '" + usr + "';"), "VM_DES");
+                    host = util.connDB(("SELECT * FROM VMLIST WHERE VM_LIST = '" + vm + "';"), "HOST_MACHINE");
                     dbUsr = util.connDB(("SELECT * FROM VMLIST WHERE VM_LIST = '" + vm + "';"), "DB_USR");
                     dbPwd = util.connDB(("SELECT * FROM VMLIST WHERE VM_LIST = '" + vm + "';"), "DB_PWD");
                     dbServ = util.connDB(("SELECT * FROM VMLIST WHERE VM_LIST = '" + vm + "';"), "DB_SERV");
@@ -420,7 +422,7 @@ public class ToolKit {
 
                 }
 
-                textAreaResult.setText("URL: " + baseUrl + "\nBank: " + bankNo + "\nEmployee: " + emp + "\nPassword: " + pwd + "\nVM Description: " + des +
+                textAreaResult.setText("URL: " + baseUrl + "\nBank: " + bankNo + "\nEmployee: " + emp + "\nPassword: " + pwd + "\nVM Description: " + des + "\nHost Machine: " + host +
                         "\nDatabase User: " + dbUsr + "\nDatabase Password: " + dbPwd + "\nDatabase Serve Name: " + dbServ + "\nUnix User: " + unixUsr + "\nUnix Password: " + unixPwd +
                         "\nPaymentHub Server: " + phServ + "\nPaymentHub Client: " + phClient);
             }

@@ -1,5 +1,8 @@
 package tools;
 
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
 import java.sql.SQLException;
 import java.text.ParseException;
 
@@ -13,10 +16,7 @@ import java.text.ParseException;
 public class PlayGroud {
 
     public static void main(String[] args) throws SQLException, ParseException {
-        Utilities u = new Utilities();
-        String k = u.connDB("SELECT * FROM VM133 WHERE EMP_CODE = 'QA-2'", "EMP_CODE");
 
-        System.out.print(k);
 
     }
 

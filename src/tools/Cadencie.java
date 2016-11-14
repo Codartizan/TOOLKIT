@@ -53,7 +53,7 @@ public class Cadencie {
         String pwd = util.connDB(("SELECT * FROM " + vm + " WHERE EMP_CODE = '" + usr + "';"), "BANK_PWD");
 
 
-                driver = new ChromeDriver();
+        driver = new ChromeDriver();
         driver.get(baseUrl);
 
 
