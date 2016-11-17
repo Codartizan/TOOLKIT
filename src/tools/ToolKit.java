@@ -1,6 +1,10 @@
 package tools;
 
 import javax.swing.*;
+import javax.swing.text.SimpleAttributeSet;
+import javax.swing.text.StyleConstants;
+import javax.swing.text.StyledDocument;
+import java.awt.*;
 import java.awt.event.*;
 import java.sql.SQLException;
 import java.text.ParseException;
@@ -16,19 +20,20 @@ import static tools.Utilities.*;
  */
 public class ToolKit {
     private JPanel jPanelToolkit;
-    private JLabel jLCheckDigit, jLJulianDate, jLRelativeDate, jLLaunchCad, jLPort, jLRecyclePort;
+    private JLabel jLCheckDigit, jLJulianDate, jLRelativeDate, jLLaunchCad, jLPort, jLRecyclePort, jLCurrUsr, usrLabel;
     private JTextField textCheckDigit, textJulianDate, textRelativeDate, textPort;
     private JButton btnCheckDigit, btnJulianDate, btnRelativeDate, btnLaunchCad, btnPort, btnRPort, btnCredentials, btnMngCad;
-    private JTextArea textAreaResult;
     private JComboBox comboVM, comboUser;
-    private JLabel jLCurrUsr;
     private JCheckBox checkYes;
     private JTextField typeYourNameTextField;
+    private JTextPane textPane;
 
 
     public ToolKit() {
 
+
         Utilities util = new Utilities();
+
 
         try {
             util.setValueFormDBtoGUI(comboVM, "SELECT * FROM VMLIST;", "VM_LIST");
@@ -37,40 +42,35 @@ public class ToolKit {
             e.printStackTrace();
         }
 
-        comboVM.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                String vmString = comboVM.getSelectedItem().toString();
-                util.displayEMP(vmString, comboUser);
+        comboVM.addActionListener(e -> {
+            String vmString = comboVM.getSelectedItem().toString();
+            util.displayEMP(vmString, comboUser);
 
-            }
         });
 
-        btnCheckDigit.addActionListener(new ActionListener() {
+        btnCheckDigit.addActionListener(e -> {
 
-            @Override
-            public void actionPerformed(ActionEvent e) {
+            if (e.getSource() == btnCheckDigit || e.getSource() == textCheckDigit) {
 
-                if (e.getSource() == btnCheckDigit || e.getSource() == textCheckDigit) {
+                String dArea;
 
-                    String dArea;
+                if (textCheckDigit.getText().length() != 0) {
 
-                    if (textCheckDigit.getText().length() != 0) {
+                    dArea = textCheckDigit.getText();
 
-                        dArea = textCheckDigit.getText();
+                    String sArea = String.valueOf(dArea);
 
-                        String sArea = String.valueOf(dArea);
+                    int digit = getCheckNumber(sArea);
 
-                        int digit = getCheckNumber(sArea);
+                    textPane.setText(" ");
+                    util.insertDocument(textPane, ("\nCheck Digit: " + String.valueOf(digit)), Color.green);
+                    util.insertDocument(textPane, ("\nCard Number: " + sArea + String.valueOf(digit)), Color.cyan);
 
-                        textAreaResult.setText("Check Digit: " + String.valueOf(digit) + "\nCard Number: " + sArea + String.valueOf(digit));
+                } else {
 
-                    } else {
-
-                        textAreaResult.setText("Please Enter a string of Numbers!!");
-                    }
+                    textPane.setText(" ");
+                    util.insertDocument(textPane, ("\nPlease Enter a string of Numbers!!"), Color.white);
                 }
-
             }
 
         });
@@ -97,8 +97,9 @@ public class ToolKit {
                             e1.printStackTrace();
 
                         }
-
-                        textAreaResult.setText("Julian Date of " + jArea + " is: " + "\n" + julianDate);
+                        textPane.setText(" ");
+                        //textAreaResult.setText("Julian Date of " + jArea + " is: " + "\n" + julianDate);
+                        util.insertDocument(textPane, (("\nJulian Date of " + jArea + " is: " + "\n" + julianDate)), Color.white);
 
                     } else if (textJulianDate.getText().length() == 4){
 
@@ -108,12 +109,15 @@ public class ToolKit {
 
                         calDate = juLianToDate(jArea);
 
-                        textAreaResult.setText("The Calender Date of " + jArea + " is: " + "\n" + calDate);
+                        textPane.setText(" ");
+                        //textAreaResult.setText("The Calender Date of " + jArea + " is: " + "\n" + calDate);
+                        util.insertDocument(textPane, (("\nThe Calender Date of " + jArea + " is: " + "\n" + calDate)), Color.white);
 
                     } else {
 
-                        textAreaResult.setText("Please enter 4 digits Julian Date or 8 digits Calendar Date");
-
+                        textPane.setText(" ");
+                        //textAreaResult.setText("Please enter 4 digits Julian Date or 8 digits Calendar Date");
+                        util.insertDocument(textPane, ("\nPlease enter 4 digits Julian Date or 8 digits Calendar Date"), Color.white);
                     }
 
                 }
@@ -145,7 +149,9 @@ public class ToolKit {
 
                         }
 
-                        textAreaResult.setText("Relative Date of " + rArea + " is " + "\n" + relativeDate);
+                        textPane.setText(" ");
+                        //textAreaResult.setText("Relative Date of " + rArea + " is " + "\n" + relativeDate);
+                        util.insertDocument(textPane, (("\nRelative Date of " + rArea + " is " + "\n" + relativeDate)), Color.white);
 
                     } else if (textRelativeDate.getText().length() == 5) {
 
@@ -160,11 +166,15 @@ public class ToolKit {
                         String emonth = new Utilities().convertMonth(month);
                         String pDate = cDate.substring(8);
 
-                        textAreaResult.setText("The Calender Date of " + rArea + " is: " +"\n" +  pDate + emonth + year + "\nor " + "\n" + cDate);
+                        textPane.setText(" ");
+                        //textAreaResult.setText("The Calender Date of " + rArea + " is: " +"\n" +  pDate + emonth + year + "\nor " + "\n" + cDate);
+                        util.insertDocument(textPane, (("\nThe Calender Date of " + rArea + " is: " +"\n" +  pDate + emonth + year + "\nor " + "\n" + cDate)), Color.white);
 
                     } else {
 
-                        textAreaResult.setText("Please enter 5 digits Relative Date or 8 digits Calendar Date");
+                        textPane.setText(" ");
+                        //textAreaResult.setText("Please enter 5 digits Relative Date or 8 digits Calendar Date");
+                        util.insertDocument(textPane, ("\nPlease enter 5 digits Relative Date or 8 digits Calendar Date"), Color.white);
 
                     }
 
@@ -270,7 +280,9 @@ public class ToolKit {
 
                 if (portNo != null) {
 
-                    textAreaResult.setText("Your Port Number is: " + "\n" + portNo + "\nPS: The port number which displayed on this screen will be treated as used!!" + "\nPlease do not press button if you don't need more port numbers!!");
+                    textPane.setText(" ");
+                    //textAreaResult.setText("Your Port Number is: " + "\n" + portNo + "\nPS: The port number which displayed on this screen will be treated as used!!" + "\nPlease do not press button if you don't need more port numbers!!");
+                    util.insertDocument(textPane, (("\nYour Port Number is: " + "\n" + portNo + "\nPS: The port number which displayed on this screen will be treated as used!!" + "\nPlease do not press button if you don't need more port numbers!!")), Color.white);
 
                     try {
 
@@ -288,7 +300,10 @@ public class ToolKit {
 
                         portNo = util.connDB("SELECT * FROM PORT;", "PORT_NBR");
 
-                        textAreaResult.setText("Your Port Number is: " + "\n" + portNo + "\nPS: The port number which displayed on this screen will be treated as used!!" + "\nPlease do not press button if you don't need more port numbers!!");
+                        textPane.setText(" ");
+                        //textAreaResult.setText("Your Port Number is: " + "\n" + portNo + "\nPS: The port number which displayed on this screen will be treated as used!!" + "\nPlease do not press button if you don't need more port numbers!!");
+                        util.insertDocument(textPane, (("\nYour Port Number is: " + "\n" + portNo + "\nPS: The port number which displayed on this screen will be treated as used!!" + "\nPlease do not press button if you don't need more port numbers!!")), Color.white);
+
 
                     } catch (SQLException e1) {
 
@@ -325,11 +340,15 @@ public class ToolKit {
 
                         if (iResult == 1) {
 
-                            textAreaResult.setText("Recycle succeed!");
+                            //textAreaResult.setText("Recycle succeed!");
+                            textPane.setText(" ");
+                            util.insertDocument(textPane, ("\nRecycle succeed!"), Color.white);
 
                         } else if (iResult == 0) {
 
-                            textAreaResult.setText("This port has been recycled already");
+                            //textAreaResult.setText("This port has been recycled already");
+                            textPane.setText(" ");
+                            util.insertDocument(textPane, ("\nThis port has been recycled already"), Color.white);
 
                         }
 
@@ -341,7 +360,9 @@ public class ToolKit {
 
                 } else {
 
-                    textAreaResult.setText("Data enter error, Port number should be 5 digits");
+                    //textAreaResult.setText("Data enter error, Port number should be 5 digits");
+                    textPane.setText(" ");
+                    util.insertDocument(textPane, ("\nData enter error, Port number should be 5 digits"), Color.white);
 
                 }
 
@@ -422,9 +443,15 @@ public class ToolKit {
 
                 }
 
-                textAreaResult.setText("URL: " + baseUrl + "\nBank: " + bankNo + "\nEmployee: " + emp + "\nPassword: " + pwd + "\nVM Description: " + des + "\nHost Machine: " + host +
-                        "\nDatabase User: " + dbUsr + "\nDatabase Password: " + dbPwd + "\nDatabase Serve Name: " + dbServ + "\nUnix User: " + unixUsr + "\nUnix Password: " + unixPwd +
-                        "\nPaymentHub Server: " + phServ + "\nPaymentHub Client: " + phClient);
+                //textAreaResult.setText("URL: " + baseUrl + "\nBank: " + bankNo + "\nEmployee: " + emp + "\nPassword: " + pwd + "\nVM Description: " + des + "\nHost Machine: " + host +
+                //        "\nDatabase User: " + dbUsr + "\nDatabase Password: " + dbPwd + "\nDatabase Serve Name: " + dbServ + "\nUnix User: " + unixUsr + "\nUnix Password: " + unixPwd +
+                //        "\nPaymentHub Server: " + phServ + "\nPaymentHub Client: " + phClient);
+                textPane.setText(" ");
+                util.insertDocument(textPane, ("\nURL: " + baseUrl + "\nBank: " + bankNo + "\nEmployee: " + emp + "\nPassword: " + pwd + "\nVM Description: " + des + "\nHost Machine: " + host), Color.cyan);
+                util.insertDocument(textPane, ("\nDatabase User: " + dbUsr + "\nDatabase Password: " + dbPwd + "\nDatabase Serve Name: " + dbServ), Color.orange);
+                util.insertDocument(textPane, ("\nUnix User: " + unixUsr + "\nUnix Password: " + unixPwd), Color.red);
+                util.insertDocument(textPane, ("\nPaymentHub Server: " + phServ + "\nPaymentHub Client: " + phClient), Color.yellow);
+
             }
 
         });

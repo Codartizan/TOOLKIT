@@ -4,6 +4,11 @@ package tools;
 import org.openqa.selenium.WebDriver;
 
 import javax.swing.*;
+import javax.swing.text.BadLocationException;
+import javax.swing.text.Document;
+import javax.swing.text.SimpleAttributeSet;
+import javax.swing.text.StyleConstants;
+import java.awt.*;
 import java.sql.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -528,6 +533,21 @@ public class Utilities {
             e.printStackTrace();
         }
 
+    }
+
+    public void insertDocument(JTextPane tp, String text , Color textColor)
+    {
+        SimpleAttributeSet set = new SimpleAttributeSet();
+        StyleConstants.setForeground(set, textColor);
+        StyleConstants.setFontSize(set, 14);
+        Document doc = tp.getStyledDocument();
+        try
+        {
+            doc.insertString(doc.getLength(), text, set);
+        }
+        catch (BadLocationException e)
+        {
+        }
     }
 
 }

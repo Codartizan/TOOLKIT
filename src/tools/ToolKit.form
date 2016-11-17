@@ -3,7 +3,7 @@
   <grid id="27dc6" binding="jPanelToolkit" layout-manager="GridLayoutManager" row-count="9" column-count="5" same-size-horizontally="false" same-size-vertically="false" hgap="10" vgap="10">
     <margin top="10" left="10" bottom="10" right="10"/>
     <constraints>
-      <xy x="20" y="20" width="824" height="484"/>
+      <xy x="20" y="20" width="824" height="514"/>
     </constraints>
     <properties>
       <autoscrolls value="true"/>
@@ -196,27 +196,6 @@
           <text value="    R&amp;elative Date(5) &lt;-&gt; (YYYYMMDD)"/>
         </properties>
       </component>
-      <component id="e3030" class="javax.swing.JTextArea" binding="textAreaResult">
-        <constraints>
-          <grid row="8" column="0" row-span="1" col-span="5" vsize-policy="0" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false">
-            <minimum-size width="666" height="-1"/>
-            <preferred-size width="666" height="100"/>
-            <maximum-size width="666" height="-1"/>
-          </grid>
-        </constraints>
-        <properties>
-          <background color="-12828863"/>
-          <caretColor color="-1"/>
-          <disabledTextColor color="-1"/>
-          <editable value="false"/>
-          <enabled value="true"/>
-          <font name="Century Gothic" size="16" style="0"/>
-          <foreground color="-1"/>
-          <selectedTextColor color="-1"/>
-          <selectionColor color="-15766017"/>
-          <text value=""/>
-        </properties>
-      </component>
       <component id="34118" class="javax.swing.JLabel" binding="jLLaunchCad">
         <constraints>
           <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
@@ -407,7 +386,7 @@
           <text value="Type Your Name"/>
         </properties>
       </component>
-      <component id="deccb" class="javax.swing.JLabel">
+      <component id="deccb" class="javax.swing.JLabel" binding="usrLabel">
         <constraints>
           <grid row="2" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
@@ -417,6 +396,30 @@
           <text value="Current User/Last User"/>
         </properties>
       </component>
+      <scrollpane id="8affe">
+        <constraints>
+          <grid row="8" column="0" row-span="1" col-span="5" vsize-policy="7" hsize-policy="0" anchor="0" fill="3" indent="0" use-parent-layout="false">
+            <minimum-size width="666" height="-1"/>
+            <preferred-size width="666" height="100"/>
+            <maximum-size width="666" height="-1"/>
+          </grid>
+        </constraints>
+        <properties>
+          <background color="-12828863"/>
+          <doubleBuffered value="false"/>
+        </properties>
+        <border type="bevel-lowered"/>
+        <children>
+          <component id="5d93" class="javax.swing.JTextPane" binding="textPane">
+            <constraints/>
+            <properties>
+              <background color="-12828863"/>
+              <editable value="false"/>
+              <font name="Century Gothic" size="14" style="0"/>
+            </properties>
+          </component>
+        </children>
+      </scrollpane>
     </children>
   </grid>
 </form>
