@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="org.kevoree.platform.standalone.gui-3.1.6">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/jars/org.kevoree.platform.standalone.gui-3.1.6.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/jars/org.kevoree.platform.standalone.gui-3.1.6.jar!/" />
+      <root url="jar://$PROJECT_DIR$/jars/org.kevoree.platform.standalone.gui-3.1.6.jar!/" />
+    </SOURCES>
+  </library>
+</component>

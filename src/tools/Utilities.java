@@ -360,16 +360,16 @@ public class Utilities {
 
             conn = DriverManager.getConnection(url, usr, pwd);
 
-            if(conn != null)
+            //if(conn != null)
 
-            {
-                System.out.println("MySql connected successful");
+            //{
+                //System.out.println("MySql connected successful");
 
-            }else{
+            //}else{
 
-                System.out.println("MySql connected failed");
+                //System.out.println("MySql connected failed");
 
-            }
+            //}
 
             stmt = conn.createStatement();
 

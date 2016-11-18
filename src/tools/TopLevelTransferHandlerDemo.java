@@ -1,24 +1,34 @@
 package tools;
 
+
 import javax.swing.*;
-import javax.swing.event.*;
+import javax.swing.event.InternalFrameAdapter;
+import javax.swing.event.InternalFrameEvent;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 import java.awt.*;
-import java.awt.event.*;
-import java.io.*;
-import java.net.*;
-import java.awt.datatransfer.*;
-import java.awt.dnd.*;
-import java.util.*;
+import java.awt.datatransfer.DataFlavor;
+import java.awt.datatransfer.Transferable;
+import java.awt.datatransfer.UnsupportedFlavorException;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.MalformedURLException;
+import java.net.URL;
+
 
 /**
  * Demonstration of the top-level {@code TransferHandler}
  * support on {@code JFrame}.
- *
- * @author Shannon Hickey
  */
 public class TopLevelTransferHandlerDemo extends JFrame {
 
     private static boolean DEMO = false;
+    private static final Color darkGray = new Color(60, 63, 65);
 
     private JDesktopPane dp = new JDesktopPane();
     private DefaultListModel listModel = new DefaultListModel();
@@ -29,11 +39,14 @@ public class TopLevelTransferHandlerDemo extends JFrame {
     private JCheckBoxMenuItem nullItem;
     private JCheckBoxMenuItem thItem;
 
+
     private class Doc extends InternalFrameAdapter implements ActionListener {
         String name;
         JInternalFrame frame;
         TransferHandler th;
         JTextArea area;
+
+
 
         public Doc(File file) {
             this.name = file.getName();
@@ -54,6 +67,7 @@ public class TopLevelTransferHandlerDemo extends JFrame {
             frame.addInternalFrameListener(this);
             listModel.add(listModel.size(), this);
 
+
             area = new JTextArea();
             area.setMargin(new Insets(5, 5, 5, 5));
 
@@ -71,7 +85,7 @@ public class TopLevelTransferHandlerDemo extends JFrame {
             }
 
             th = area.getTransferHandler();
-            area.setFont(new Font("monospaced", Font.PLAIN, 12));
+            area.setFont(new Font("monospaced", Font.PLAIN, 24));
             area.setCaretPosition(0);
             area.setDragEnabled(true);
             area.setDropMode(DropMode.INSERT);
@@ -138,7 +152,7 @@ public class TopLevelTransferHandlerDemo extends JFrame {
     }
 
     private TransferHandler handler = new TransferHandler() {
-        public boolean canImport(TransferHandler.TransferSupport support) {
+        public boolean canImport(TransferSupport support) {
             if (!support.isDataFlavorSupported(DataFlavor.javaFileListFlavor)) {
                 return false;
             }
@@ -156,7 +170,7 @@ public class TopLevelTransferHandlerDemo extends JFrame {
             return true;
         }
 
-        public boolean importData(TransferHandler.TransferSupport support) {
+        public boolean importData(TransferSupport support) {
             if (!canImport(support)) {
                 return false;
             }
@@ -190,9 +204,9 @@ public class TopLevelTransferHandlerDemo extends JFrame {
 
     public TopLevelTransferHandlerDemo() {
         super("TopLevelTransferHandlerDemo");
-        setJMenuBar(createDummyMenuBar());
-        getContentPane().add(createDummyToolBar(), BorderLayout.NORTH);
-
+        //setJMenuBar(createDummyMenuBar());
+        //getContentPane().add(createDummyToolBar(), BorderLayout.NORTH);
+        getContentPane();
         JSplitPane sp = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, list, dp);
         sp.setDividerLocation(120);
         getContentPane().add(sp);
@@ -256,7 +270,7 @@ public class TopLevelTransferHandlerDemo extends JFrame {
         test.list.requestFocus();
     }
 
-    public static void main(final String[] args) {
+    public static void startUI(final String[] args) {
         SwingUtilities.invokeLater(new Runnable() {
             public void run() {
                 //Turn off metal's use of bold fonts
@@ -323,4 +337,5 @@ public class TopLevelTransferHandlerDemo extends JFrame {
         menu.add(item);
         return menu;
     }
+
 }

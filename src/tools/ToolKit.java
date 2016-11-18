@@ -98,7 +98,6 @@ public class ToolKit {
 
                         }
                         textPane.setText(" ");
-                        //textAreaResult.setText("Julian Date of " + jArea + " is: " + "\n" + julianDate);
                         util.insertDocument(textPane, (("\nJulian Date of " + jArea + " is: " + "\n" + julianDate)), Color.white);
 
                     } else if (textJulianDate.getText().length() == 4){
@@ -110,13 +109,11 @@ public class ToolKit {
                         calDate = juLianToDate(jArea);
 
                         textPane.setText(" ");
-                        //textAreaResult.setText("The Calender Date of " + jArea + " is: " + "\n" + calDate);
                         util.insertDocument(textPane, (("\nThe Calender Date of " + jArea + " is: " + "\n" + calDate)), Color.white);
 
                     } else {
 
                         textPane.setText(" ");
-                        //textAreaResult.setText("Please enter 4 digits Julian Date or 8 digits Calendar Date");
                         util.insertDocument(textPane, ("\nPlease enter 4 digits Julian Date or 8 digits Calendar Date"), Color.white);
                     }
 
@@ -150,7 +147,6 @@ public class ToolKit {
                         }
 
                         textPane.setText(" ");
-                        //textAreaResult.setText("Relative Date of " + rArea + " is " + "\n" + relativeDate);
                         util.insertDocument(textPane, (("\nRelative Date of " + rArea + " is " + "\n" + relativeDate)), Color.white);
 
                     } else if (textRelativeDate.getText().length() == 5) {
@@ -167,13 +163,11 @@ public class ToolKit {
                         String pDate = cDate.substring(8);
 
                         textPane.setText(" ");
-                        //textAreaResult.setText("The Calender Date of " + rArea + " is: " +"\n" +  pDate + emonth + year + "\nor " + "\n" + cDate);
                         util.insertDocument(textPane, (("\nThe Calender Date of " + rArea + " is: " +"\n" +  pDate + emonth + year + "\nor " + "\n" + cDate)), Color.white);
 
                     } else {
 
                         textPane.setText(" ");
-                        //textAreaResult.setText("Please enter 5 digits Relative Date or 8 digits Calendar Date");
                         util.insertDocument(textPane, ("\nPlease enter 5 digits Relative Date or 8 digits Calendar Date"), Color.white);
 
                     }
@@ -281,7 +275,6 @@ public class ToolKit {
                 if (portNo != null) {
 
                     textPane.setText(" ");
-                    //textAreaResult.setText("Your Port Number is: " + "\n" + portNo + "\nPS: The port number which displayed on this screen will be treated as used!!" + "\nPlease do not press button if you don't need more port numbers!!");
                     util.insertDocument(textPane, (("\nYour Port Number is: " + "\n" + portNo + "\nPS: The port number which displayed on this screen will be treated as used!!" + "\nPlease do not press button if you don't need more port numbers!!")), Color.white);
 
                     try {
@@ -301,7 +294,6 @@ public class ToolKit {
                         portNo = util.connDB("SELECT * FROM PORT;", "PORT_NBR");
 
                         textPane.setText(" ");
-                        //textAreaResult.setText("Your Port Number is: " + "\n" + portNo + "\nPS: The port number which displayed on this screen will be treated as used!!" + "\nPlease do not press button if you don't need more port numbers!!");
                         util.insertDocument(textPane, (("\nYour Port Number is: " + "\n" + portNo + "\nPS: The port number which displayed on this screen will be treated as used!!" + "\nPlease do not press button if you don't need more port numbers!!")), Color.white);
 
 
@@ -340,13 +332,11 @@ public class ToolKit {
 
                         if (iResult == 1) {
 
-                            //textAreaResult.setText("Recycle succeed!");
                             textPane.setText(" ");
                             util.insertDocument(textPane, ("\nRecycle succeed!"), Color.white);
 
                         } else if (iResult == 0) {
 
-                            //textAreaResult.setText("This port has been recycled already");
                             textPane.setText(" ");
                             util.insertDocument(textPane, ("\nThis port has been recycled already"), Color.white);
 
@@ -360,7 +350,6 @@ public class ToolKit {
 
                 } else {
 
-                    //textAreaResult.setText("Data enter error, Port number should be 5 digits");
                     textPane.setText(" ");
                     util.insertDocument(textPane, ("\nData enter error, Port number should be 5 digits"), Color.white);
 
@@ -443,9 +432,6 @@ public class ToolKit {
 
                 }
 
-                //textAreaResult.setText("URL: " + baseUrl + "\nBank: " + bankNo + "\nEmployee: " + emp + "\nPassword: " + pwd + "\nVM Description: " + des + "\nHost Machine: " + host +
-                //        "\nDatabase User: " + dbUsr + "\nDatabase Password: " + dbPwd + "\nDatabase Serve Name: " + dbServ + "\nUnix User: " + unixUsr + "\nUnix Password: " + unixPwd +
-                //        "\nPaymentHub Server: " + phServ + "\nPaymentHub Client: " + phClient);
                 textPane.setText(" ");
                 util.insertDocument(textPane, ("\nURL: " + baseUrl + "\nBank: " + bankNo + "\nEmployee: " + emp + "\nPassword: " + pwd + "\nVM Description: " + des + "\nHost Machine: " + host), Color.cyan);
                 util.insertDocument(textPane, ("\nDatabase User: " + dbUsr + "\nDatabase Password: " + dbPwd + "\nDatabase Serve Name: " + dbServ), Color.orange);
