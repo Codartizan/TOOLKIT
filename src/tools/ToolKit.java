@@ -138,7 +138,7 @@ public class ToolKit {
 
                         try {
 
-                            relativeDate = convertToRelative(rArea);
+                            relativeDate = util.convertToRelative(rArea);
 
                         } catch (ParseException e1) {
 

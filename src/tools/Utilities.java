@@ -12,10 +12,7 @@ import java.awt.*;
 import java.sql.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.GregorianCalendar;
-import java.util.Set;
+import java.util.*;
 
 
 /**
@@ -26,6 +23,7 @@ import java.util.Set;
  * PS:
  */
 public class Utilities {
+
 
     public static int getCheckNumber(String cardNumber){
         int totalNumber = 0;
@@ -137,11 +135,13 @@ public class Utilities {
 
 
     //Convert yyyymmdd to Relative Date, keep 5 digits
-    public static String convertToRelative(String endDate) throws ParseException{
+    public String convertToRelative(String endDate) throws ParseException{
 
-        String baseDate = "19570101 00:00:00";
+        String relativeDate;
+        String baseDate = "19570101";
+        boolean isDST = TimeZone.getDefault().inDaylightTime(new java.util.Date());
 
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd HH:mm:ss");
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
 
         Calendar cal = Calendar.getInstance();
 
@@ -149,18 +149,32 @@ public class Utilities {
 
         long time1 = cal.getTimeInMillis();
 
-        cal.setTime(sdf.parse(endDate + " 00:00:00"));
+        cal.setTime(sdf.parse(endDate));
 
         long time2 = cal.getTimeInMillis();
 
-        long between_days = (time2-time1)/(1000*3600*24);
 
-        int relative = Integer.parseInt(String.valueOf(between_days));
+        if ( isDST ) {
 
-        String relativeDate = String.valueOf(relative + 1);
+            long between_days = (time2 - time1 - 3600000)/(1000*3600*24);
+
+            int relative = Integer.parseInt(String.valueOf(between_days));
+
+            relativeDate = String.valueOf(relative + 1);
+
+        } else {
+
+            long between_days = (time2 - time1)/(1000*3600*24);
+
+            int relative = Integer.parseInt(String.valueOf(between_days));
+
+            relativeDate = String.valueOf(relative + 1);
+
+        }
 
         //return relativeDate.substring(1);
         return relativeDate;
+
     }
 
     //Convert 5 digits Relative Date to ddmmyy
@@ -211,31 +225,31 @@ public class Utilities {
         Month eMonth = Month.JAN;
 
         switch (month) {
-            case "1":
+            case "01":
                 eMonth = Month.JAN;
                 break;
-            case "2":
+            case "02":
                 eMonth = Month.FEB;
                 break;
-            case "3":
+            case "03":
                 eMonth = Month.MAR;
                 break;
-            case "4":
+            case "04":
                 eMonth = Month.APR;
                 break;
-            case "5":
+            case "05":
                 eMonth = Month.MAY;
                 break;
-            case "6":
+            case "06":
                 eMonth = Month.JUN;
                 break;
-            case "7":
+            case "07":
                 eMonth = Month.JUL;
                 break;
-            case "8":
+            case "08":
                 eMonth = Month.AUG;
                 break;
-            case "9":
+            case "09":
                 eMonth = Month.SEP;
                 break;
             case "10":
@@ -416,6 +430,7 @@ public class Utilities {
         Statement stmt = null;
         int state;
 
+
         String url = "jdbc:mysql://172.16.1.150:3306/TOOLKIT";
         String usr = "root";
         String pwd = "123456";
@@ -545,7 +560,7 @@ public class Utilities {
         {
             doc.insertString(doc.getLength(), text, set);
         }
-        catch (BadLocationException e)
+        catch (BadLocationException ignored)
         {
         }
     }
